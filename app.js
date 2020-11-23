@@ -18,16 +18,17 @@ let nombreDeviner = document.getElementById('nombreDeviner');
 
 let message = document.querySelector('#message')
 
+const boutonRejouer = document.querySelector("#rejouer")
+boutonRejouer.style.display=("none")
+
 // creer un tableau ou on va stocker toutes les essaies 
 let  valeurs = [] 
 // ---------------------------------------------------------------------------
-for (let index = 0; index <9; index++) {
-    
-    
 
 // creer une fonction qui va etre appeller à chaque fois on click sur le bouton 
  bouton.addEventListener("click", (e)=>{
-
+    //  en 10 tours ça s'arrete 
+if(valeurs.length < 10){
     e.preventDefault();
 // recuperer le nombre deviner en stockant dans une variable
     let valeurNombreDeviner = nombreDeviner.value
@@ -36,31 +37,48 @@ for (let index = 0; index <9; index++) {
     if(nombreAleatoire==valeurNombreDeviner){
         // afficher ce message 
          message.innerHTML = "Bravo, Tu as deviné le bon nombre qui est :"+ nombreAleatoire;
+         message.style.color=("#fff")  
+         message.style.backgroundColor=("rgb(25, 90, 25)")
+         boutonRejouer.style.display=("")
+         boutonRejouer.addEventListener("click", ()=>{
+         document.location.reload();
+         })
     }else if (nombreAleatoire > valeurNombreDeviner ){
         console.log(nombreAleatoire+ " > "+ valeurNombreDeviner )
         message.innerHTML="essayez une autre fois, le nombre est inférieur de le bon nombre"
+        message.style.color=("#fff")  
+        message.style.backgroundColor=("rgb(119, 15, 15)")   
     }else if (nombreAleatoire < valeurNombreDeviner  ){
         console.log(nombreAleatoire+ " < "+ valeurNombreDeviner )    
-       message.innerHTML="essayez une autre fois, le nombre est supérieur de le bon nombre"
-
-    }
+        message.innerHTML="essayez une autre fois, le nombre est supérieur de le bon nombre"
+        message.style.color=("#fff")  
+        message.style.backgroundColor=("rgb(119, 15, 15)")   
+    } 
 
 // stocker cette valeur au tableau des essaies  
-    valeurs += ` ${valeurNombreDeviner}`
+   const count = valeurs.push(valeurNombreDeviner)
 // afficher le tableau dans le navigateur 
     result.innerHTML = valeurs 
   
 
 
-
+    console.log(valeurs.length)
     console.log(nombreAleatoire)
     console.log(valeurNombreDeviner)    
     console.log(valeurs)
+} else {
+    message.innerHTML="Le jeu termine, essayez une autre fois"
+    e.preventDefault();
+    boutonRejouer.style.display=("")
+    boutonRejouer.addEventListener("click", ()=>{
+        document.location.reload();
+    })
+}
 })   
 
 
 
-}
+
 
 
 
