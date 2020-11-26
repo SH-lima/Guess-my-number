@@ -17,3 +17,9 @@ button{
     border: 1px solid #0a6d6d;
 }
 
+@media (max-width:900px ){
+    main{
+        margin:10vw 15vw;
+        text-align: center;
+    }
+}

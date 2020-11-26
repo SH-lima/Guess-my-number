@@ -34,7 +34,7 @@ if(valeurs.length < 10){
     let valeurNombreDeviner = nombreDeviner.value
 
     // creer un condition qui permet de comparer le nombre aleatoire et le nombre deviner 
-    if(nombreAleatoire==valeurNombreDeviner){
+    if(nombreAleatoire===valeurNombreDeviner){
         // afficher ce message 
          message.innerHTML = "Bravo, Tu as deviné le bon nombre qui est :"+ nombreAleatoire;
          message.style.color=("#fff")  
@@ -46,7 +46,7 @@ if(valeurs.length < 10){
     }else if (nombreAleatoire > valeurNombreDeviner ){
         console.log(nombreAleatoire+ " > "+ valeurNombreDeviner )
         message.innerHTML="essayez une autre fois, le nombre est inférieur de le bon nombre"
-        message.style.color=("#fff")  
+        message.style.color=("#fff")    
         message.style.backgroundColor=("rgb(119, 15, 15)")   
     }else if (nombreAleatoire < valeurNombreDeviner  ){
         console.log(nombreAleatoire+ " < "+ valeurNombreDeviner )    
