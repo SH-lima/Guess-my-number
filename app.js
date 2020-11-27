@@ -34,7 +34,7 @@ if(valeurs.length < 10){
     let valeurNombreDeviner = nombreDeviner.value
 
     // creer un condition qui permet de comparer le nombre aleatoire et le nombre deviner 
-    if(nombreAleatoire===valeurNombreDeviner){
+    if(nombreAleatoire==valeurNombreDeviner){
         // afficher ce message 
          message.innerHTML = "Bravo, Tu as deviné le bon nombre qui est :"+ nombreAleatoire;
          message.style.color=("#fff")  
@@ -45,12 +45,12 @@ if(valeurs.length < 10){
          })
     }else if (nombreAleatoire > valeurNombreDeviner ){
         console.log(nombreAleatoire+ " > "+ valeurNombreDeviner )
-        message.innerHTML="essayez une autre fois, le nombre est inférieur de le bon nombre"
+        message.innerHTML="essayez une autre fois, le nombre est inférieur au bon nombre"
         message.style.color=("#fff")    
         message.style.backgroundColor=("rgb(119, 15, 15)")   
     }else if (nombreAleatoire < valeurNombreDeviner  ){
         console.log(nombreAleatoire+ " < "+ valeurNombreDeviner )    
-        message.innerHTML="essayez une autre fois, le nombre est supérieur de le bon nombre"
+        message.innerHTML="essayez une autre fois, le nombre est supérieur au bon nombre"
         message.style.color=("#fff")  
         message.style.backgroundColor=("rgb(119, 15, 15)")   
     } 
@@ -61,13 +61,13 @@ if(valeurs.length < 10){
     result.innerHTML = valeurs 
   
 
-
+    console.log(nombreAleatoire==valeurNombreDeviner)
     console.log(valeurs.length)
     console.log(nombreAleatoire)
     console.log(valeurNombreDeviner)    
     console.log(valeurs)
 } else {
-    message.innerHTML="Le jeu termine, essayez une autre fois"
+    message.innerHTML="Le jeu est terminé, essayez une autre fois"
     e.preventDefault();
     boutonRejouer.style.display=("")
     boutonRejouer.addEventListener("click", ()=>{
